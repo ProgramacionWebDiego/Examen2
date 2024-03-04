@@ -1,0 +1,42 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+.hola{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    float: none;
+    display: flex;
+}
+
+input{
+    border: 1px;
+    margin: 10px;
+    width: 350px;
+    height: 25px;
+}
+.pepones2{
+    width: 100px;
+    background-color: rgb(7, 201, 250);
+    border-radius: 5px;
+}
+#inputCarrera{
+    display: none;
+    width: 100px;
+}
+select{
+    width: 220px;
+    height: 25px;
+}
+.pepones{
+    background-color: aqua;
+    text-align: left;
+    width: 400px;
+    height: auto;
+    margin: 1%;
+}
+.pepones33{
+    width: 100px;
+}

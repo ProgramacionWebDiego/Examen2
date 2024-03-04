@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/examen/c.css">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Formulario de Registro</h2>
+    <section class="hola">
+        <div class="pepones">
+            <br>
+            <label for="nombre">Nombre:</label>
+            <br>
+            <input type="text" id="nombre">
+            <br>
+            <label for="telefono">Telefono:</label>
+            <br>
+            <input type="tel" id="telefono">
+            <br>
+            <label for="correo">Correo electronico:</label>
+            <br>
+            <input type="email" id="correo">
+            <br>
+            <label for="escuela">Escuela</label>
+            <br>
+            <select name="Seleciona.." id="escuela">
+                <option value="opcion1">Seleciona...</option>
+                <option value="Cecytem">Cecytem</option>
+                <option value="Conalep">Conalep</option>
+                <option value="Cetmar">Cetmar</option>
+                <option value="Otra Escuela">Otra Escuela</option>
+            </select>
+            <br>
+            <div id="inputCarreraCecytem" style="display: none;">
+                <label for="carrera_cecytem">Carrera Cecytem:</label>
+                <br>
+                <select name="carrera_cecytem" id="carrera_cecytem">
+                    <option value="">Carrera1</option>
+                    <option value="">Carrera2</option>
+                    <option value="">Carrera3</option>
+                    <option value="">Otra Carrera</option>
+                </select>
+                <br>
+            </div>
+            <br>
+            <div id="inputCarreraConalep" style="display: none;">
+                <label for="carrera_conalep">Carrera Conalep:</label>
+                <br>
+                <select name="carrera_conalep" id="carrera_conalep">
+                    <option value="">CarreraA</option>
+                    <option value="">CarreraB</option>
+                    <option value="">CarreraC</option>
+                    <option value="">Otra Carrera</option>
+                </select>
+                <br>
+            </div>
+            <br>
+            <div id="inputCarreraCetmar" style="display: none;">
+                <label for="carrera_cetmar">Carrera Cetmar</label>
+                <br>
+                <select name="carrera_cetmar" id="carrera_cetmar">
+                    <option value="">CarreraA</option>
+                    <option value="">CarreraB</option>
+                    <option value="">pepones</option>
+                    <option value="">Otra Carrera</option>
+                </select>
+                <br>
+            </div>
+            <br>
+            <div id="inputCarreraOtraEscuela" style="display: none;">
+                <label for="carrera_otra">Carrera Otra Escuela:</label>
+                <br>
+                <input type="text" id="carrera_otra">
+                <br>
+                <label for="nombre_carrera_nueva">Nombre de la nueva Carrera</label>
+                <br>
+                <input type="text" id="nombre_carrera_nueva">
+                <br>
+            </div>
+            <br>
+            <input type="submit" value="Enviar" class="pepones2" id="enviar">
+        </div>
+    </section>
+    <div id="datos"></div>
+    <script>
+        document.getElementById('enviar').addEventListener('click', function() {
+            var nombre = document.getElementById('nombre').value;
+            var telefono = document.getElementById('telefono').value;
+            var correo = document.getElementById('correo').value;
+            var escuela = document.getElementById('escuela').value;
+            var carrera = "";
+
+            if (escuela === 'Cecytem') {
+                carrera = document.getElementById('carrera_cecytem').value;
+            } else if (escuela === 'Conalep') {
+                carrera = document.getElementById('carrera_conalep').value;
+            } else if (escuela === 'Cetmar') {
+                carrera = document.getElementById('carrera_cetmar').value;
+            } else if (escuela === 'Otra Escuela') {
+                carrera = document.getElementById('carrera_otra').value;
+            }
+
+            var datos = "Nombre: " + nombre + "<br>Telefono: " + telefono + "<br>Correo electrónico: " + correo + "<br>Escuela: " + escuela + "<br>Carrera: " + carrera;
+            document.getElementById('datos').innerHTML = datos;
+        });
+
+        document.getElementById('escuela').addEventListener('change', function() {
+            var inputCarreraCecytem = document.getElementById('inputCarreraCecytem');
+            var inputCarreraConalep = document.getElementById('inputCarreraConalep');
+            var inputCarreraCetmar = document.getElementById('inputCarreraCetmar');
+            var inputCarreraOtraEscuela = document.getElementById('inputCarreraOtraEscuela');
+            
+            if (this.value === 'Cecytem') {
+                inputCarreraCecytem.style.display = 'block';
+                inputCarreraConalep.style.display = 'none';
+                inputCarreraCetmar.style.display = 'none';
+                inputCarreraOtraEscuela.style.display = 'none';
+            } else if (this.value === 'Conalep') {
+                inputCarreraCecytem.style.display = 'none';
+                inputCarreraConalep.style.display = 'block';
+                inputCarreraCetmar.style.display = 'none';
+                inputCarreraOtraEscuela.style.display = 'none';
+            } else if (this.value === 'Cetmar') {
+                inputCarreraCecytem.style.display = 'none';
+                inputCarreraConalep.style.display = 'none';
+                inputCarreraCetmar.style.display = 'block';
+                inputCarreraOtraEscuela.style.display = 'none';
+            } else if (this.value === 'Otra Escuela') {
+                inputCarreraCecytem.style.display = 'none';
+                inputCarreraConalep.style.display = 'none';
+                inputCarreraCetmar.style.display = 'none';
+                inputCarreraOtraEscuela.style.display = 'block';
+            } else {
+                inputCarreraCecytem.style.display = 'none';
+                inputCarreraConalep.style.display = 'none';
+                inputCarreraCetmar.style.display = 'none';
+                inputCarreraOtraEscuela.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
